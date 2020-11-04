@@ -23,6 +23,15 @@ class TaTeTi():
         self.__valid = value
 
     def __str__(self):
+        tablero = ''
+        tablero += '%s|%s|%s' % (self.board['1.1'], self.board['1.2'],
+                                 self.board['1.3'])
+        tablero += '\n---+---+---\n'
+        tablero += '%s|%s|%s' % (self.board['2.1'], self.board['2.2'],
+                                 self.board['2.3'])
+        tablero += '\n---+---+---\n'
+        tablero += '%s|%s|%s' % (self.board['3.1'], self.board['3.2'],
+                                 self.board['3.3'])
         tablero = '1.1|1.2|1.3\n---+---+---\n2.1|2.2|2.3\n'\
             '---+---+---\n3.1|3.2|3.3'
         return tablero
@@ -72,6 +81,7 @@ class TaTeTi():
     def input_position(self):
         celda = ''
         while celda not in self.valid:
+            print('celda invalida')
             celda = input("Ingrese una celda: ")
         if celda in self.board and self.board[celda] == celda:
             self.board[celda] = 'x'
